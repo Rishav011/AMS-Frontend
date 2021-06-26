@@ -1,0 +1,10 @@
+@import '~@simpl/sioux-theme/src/material-design/sioux-dark-theme';
+$font-path: '~@simpl/sioux-icons/dist/fonts';
+@import '~@simpl/sioux-icons/dist/style/simpl-sioux-icons';
+@import '~material-design-icons/iconfont/material-icons.css';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
