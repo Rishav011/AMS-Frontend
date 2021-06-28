@@ -21,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AssetDetailsFormComponent } from './asset-details-form/asset-details-form.component';
+import { HomeComponent } from './home/home.component';
 
 // export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 //   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -30,6 +32,8 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     AppComponent,
     MainNavComponent,
+    AssetDetailsFormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

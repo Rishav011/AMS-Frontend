@@ -7,6 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -18,6 +23,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatSelectModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatTableModule,
+    TextFieldModule,
+    MatInputModule,
+    MatSortModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +37,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatSelectModule,
     MatTooltipModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatTableModule,
+    TextFieldModule,
+    MatInputModule,
+    MatSortModule
   ]
 })
 export class MatModule { }

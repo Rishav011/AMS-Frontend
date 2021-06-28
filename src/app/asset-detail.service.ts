@@ -1,0 +1,17 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IAssetDetail } from './asset-detail';
+// import data from '../assets/data/data.json'
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetDetailService {
+  private _url:string="../assets/data/data.json";
+  constructor(private http:HttpClient) { }
+  
+  getAssetData():Observable<IAssetDetail[]>{
+    return this.http.get<IAssetDetail[]>(this._url);
+  }
+}

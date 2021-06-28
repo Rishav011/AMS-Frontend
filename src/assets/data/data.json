@@ -1,0 +1,22 @@
+[
+    {
+    "projectName":"string",
+    "assetCategory":"string",
+    "manufacturer":"string",
+    "assetName":"string",
+    "description":"string",
+    "mlfb":"string",
+    "workingCondition":"string",
+    "remark":"string"
+},
+{
+    "projectName":"string",
+    "assetCategory":"string",
+    "manufacturer":"string",
+    "assetName":"string",
+    "description":"string",
+    "mlfb":"string",
+    "workingCondition":"string",
+    "remark":"string"
+}
+]
