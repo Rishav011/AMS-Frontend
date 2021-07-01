@@ -5,6 +5,5 @@ export interface IAssetDetail {
     assetName:string,
     description:string,
     mlfb:string,
-    workingCondition:string,
-    remark:string 
+    workingCondition:string
 }

@@ -12,7 +12,9 @@ import {MatTableModule} from '@angular/material/table';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -27,7 +29,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     TextFieldModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule
   ],
   exports: [
     MatButtonModule,
@@ -42,7 +47,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     TextFieldModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule
   ]
 })
 export class MatModule { }

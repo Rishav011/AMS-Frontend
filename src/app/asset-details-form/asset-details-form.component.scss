@@ -8,10 +8,15 @@
     background: #1D2129 0% 0% no-repeat padding-box;
 border-radius: 4px;
 opacity: 1;
-margin: 5% 2%;
-padding:2%;
+margin: 2% 2%;
+padding:0.01% 2%;
 }
-
+.main-title{
+    font: normal normal bold 24px/29px Siemens Sans;
+    position: relative;
+    top: 5px;
+    // margin-left: 20%
+}
 .title{
     text-align: left;
 font: normal normal bold 20px/24px Siemens Sans;

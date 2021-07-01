@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAssetDetail } from './asset-detail';
-// import data from '../assets/data/data.json'
 
 @Injectable({
   providedIn: 'root'

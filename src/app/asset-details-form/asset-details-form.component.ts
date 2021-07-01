@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssetDetailsFormComponent implements OnInit {
 
-  constructor() { }
+  maxDate:Date
+  constructor() { 
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDate = new Date().getDate();
+ 
+    this.maxDate = new Date(currentYear,currentMonth,currentDate);
+  }
 
   ngOnInit(): void {
   }
