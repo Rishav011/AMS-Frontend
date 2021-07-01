@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
@@ -30,6 +31,7 @@ import {MatMenuModule} from '@angular/material/menu';
     TextFieldModule,
     MatInputModule,
     MatSortModule,
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule
@@ -48,9 +50,10 @@ import {MatMenuModule} from '@angular/material/menu';
     TextFieldModule,
     MatInputModule,
     MatSortModule,
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule
   ]
 })
-export class MatModule { }
+export class MaterialModule { }

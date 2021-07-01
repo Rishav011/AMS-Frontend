@@ -23,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AssetDetailsFormComponent } from './asset-details-form/asset-details-form.component';
 import { HomeComponent } from './home/home.component';
-import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { MaterialModule } from './shared/material/material.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -38,7 +39,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MainNavComponent,
     AssetDetailsFormComponent,
     HomeComponent,
-    MainDashboardComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,7 @@ import { MatMenuModule } from '@angular/material/menu';
     SharedModule,
     HttpClientModule,
     SiOUXThemeSwitcherModule,
-   
+    MaterialModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       // loader: {
