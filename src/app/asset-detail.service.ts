@@ -7,7 +7,7 @@ import { IAssetDetail } from './asset-detail';
   providedIn: 'root'
 })
 export class AssetDetailService {
-  private _url:string="../assets/data/data.json";
+  private _url:string="http://localhost:25160/api/assets";
   constructor(private http:HttpClient) { }
   
   getAssetData():Observable<IAssetDetail[]>{

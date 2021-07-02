@@ -53,7 +53,7 @@ padding-left: 5px;
 .person_icon{
   position:fixed;
   top: 25px;
-  left: 88%;
+  left: 90%;
   width: 16px;
   height: 16px;
   opacity: 1;
@@ -75,13 +75,15 @@ padding-left: 5px;
 .is-active{
   background: #343840;
 }
-.svgicon:hover, .svgicon:active, .svgicon:visited {
-  fill: #627ed1;
-  color: #627ed1;
+.svgicon{
+  filter: brightness(0) saturate(100%) invert(50%) sepia(72%) saturate(358%) hue-rotate(185deg) brightness(88%) contrast(93%);;
 }
 @media only screen and(max-width:1200px) {
   .user-name{
     left: 85%;
+  }
+  .person_icon{
+    left: 82%;
   }
   
 }
@@ -89,9 +91,15 @@ padding-left: 5px;
   .user-name{
     left: 80%;
   }
+  .person_icon{
+    left: 75%;
+  }
 }
 @media only screen and(max-width:450px) {
   .user-name{
     visibility: hidden;
+  }
+  .person_icon{
+    left: 82%;
   }
 }

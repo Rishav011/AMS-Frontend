@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = [
     'projectName',
-    'assetCategory',
+    'category',
     'manufacturer',
-    'assetName',
+    'name',
     'description',
     'mlfb',
     'workingCondition',
-    'remark',
+    'remarks',
     "actions"
   ];
   dataSource: IAssetDetail[]=[];

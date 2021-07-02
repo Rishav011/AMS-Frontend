@@ -12,7 +12,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 export class DashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['projectName',
-    'assetCategory',
+    'category',
     'manufacturer',
     'description',
     'workingCondition',
