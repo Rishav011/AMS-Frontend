@@ -13,4 +13,8 @@ export class AssetDetailService {
   getAssetData():Observable<IAssetDetail[]>{
     return this.http.get<IAssetDetail[]>(this._url);
   }
+  getSingleAssetData(id:string):Observable<IAssetDetail>{
+    let modifiedUrl = `${this._url}/${id}`;
+    return this.http.get<IAssetDetail>(modifiedUrl);
+  }
 }

@@ -72,14 +72,14 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #appMenu="matMenu">
-              <button routerLink='/asset-form' mat-menu-item>Edit</button>
+              <button (click)="goToForms()" mat-menu-item>Edit</button>
             </mat-menu>
           </td>
         </ng-container>
           
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="getId(row.id)"></tr>
       </table>
 </div>
 
