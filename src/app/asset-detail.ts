@@ -1,10 +1,20 @@
 export interface IAssetDetail {
-    projectName:string,
-    assetCategory:string,
-    manufacturer:string,
-    assetName:string,
-    description:string,
-    mlfb:string,
-    workingCondition:string,
-    remark:string 
+   category:string,
+   description:string,
+   currentUserEmail:string,
+   id:string,
+   invoiceNumber:string,
+   invoiceReceiveDate:string,
+   ipAddress:string,
+   location:string,
+   manufacturer:string,
+   mlfb:string,
+   name:string,
+   owner:string,
+   poNumber:string,
+   projectName:string,
+   remarks:string,
+   serialNumber:number,
+   supportComm:string,
+   workingCondition:string
 }
