@@ -4,9 +4,48 @@
 <mat-card class="totalprojects"><mat-icon svgIcon="folder" class="ok"></mat-icon><span class="bright_text">100</span><span class="blur_text">Total Projects</span></mat-card>
 <mat-card class="workingassets"><mat-icon svgIcon="ok" class="ok"></mat-icon><span class="bright_text">100</span><span class="blur_text">No.of Working Assets</span></mat-card>
 <mat-card class="totalmanufacturer"><mat-icon svgIcon="group2" class="group"></mat-icon><span class="bright_text">100</span><span class="blur_text">Manufacturer</span></mat-card>
-<mat-card class="manufacturergraph">Manufacturer graph</mat-card>
-<mat-card class="assettypegraph">Asset Type</mat-card>
-<mat-card class="projectgraph">Project Graph</mat-card>
+<mat-card class="manufacturergraph">Manufacturer graph
+  <div>
+    <div>
+      <div style="width:fit-content">
+        <canvas baseChart
+        [data]="doughnutChartManufactureData"
+        [labels]="doughnutChartManufactureLabels"
+        [chartType]="doughnutChartManufactureType">
+      </canvas>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<mat-card class="assettypegraph">Asset Type
+  <div>
+    <div>
+      <div style="width: fit-content">
+        <canvas baseChart
+        [data]="doughnutChartAssetData"
+        [labels]="doughnutChartAssetLabels"
+        [chartType]="doughnutChartAssetType">
+      </canvas>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<mat-card class="projectgraph">Project Graph
+  <div>
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+        [datasets]="BubChartProjectData"
+        [options]="BubChartProjectOptions"
+        
+        [legend]="BubChartProjectLegend"
+        [chartType]="BubChartProjectType">
+      </canvas>
+      </div>
+  
+    </div>
+  </div>
+</mat-card>
 
 <div class="mat-app-background tablecss">
     <mat-toolbar class="bar">

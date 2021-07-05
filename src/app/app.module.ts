@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { ChartsModule } from 'ng2-charts';
 // export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 //   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 // }
@@ -64,7 +65,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ChartsModule
   ],
   bootstrap: [AppComponent]
 })
