@@ -15,9 +15,9 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   imports: [
@@ -37,7 +37,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatGridListModule
   ],
   exports: [
     MatButtonModule,
@@ -57,11 +58,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatGridListModule
   ],
   providers:[
-    {provide:MAT_DATE_LOCALE,useValue:'en-GB'},
-    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true} }
+    {provide:MAT_DATE_LOCALE,useValue:'en-GB'}
   ]
 })
 export class MaterialModule { }

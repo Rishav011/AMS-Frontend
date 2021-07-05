@@ -5,7 +5,7 @@ export class FormData {
        public description:string,
        public id:string,
        public invoiceNumber:string,
-       public invoiceReceiveDate:string,
+       public invoiceReceiveDate:Date,
        public ipAddress:string,
        public location:string,
        public manufacturer:string,

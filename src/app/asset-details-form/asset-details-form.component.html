@@ -4,14 +4,14 @@
   <label class="main-title">Add New Asset</label>
 </div>
 <div class="bgdata">
-<form>
+<form #assetForm="ngForm" (ngSubmit)="onSubmit()">
   <!-- <hr />
   {{formDataModel |json}}
   <hr /> -->
       <div>
         <mat-form-field class="ip" appearance="fill">
-            <mat-label>Project Name*</mat-label>
-            <mat-select name="projectName" [(ngModel)]="formDataModel.projectName">
+            <mat-label>Project Name</mat-label>
+            <mat-select required name="projectName" [(ngModel)]="formDataModel.projectName">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
@@ -20,29 +20,29 @@
           <div class="title" style="margin-top:4% ;margin-bottom:2%">Asset Details</div>
           <div>
             <mat-form-field class="ip" appearance="fill">
-              <mat-label>Asset Category*</mat-label>
-              <mat-select name="category" [(ngModel)]="formDataModel.category">
+              <mat-label>Asset Category</mat-label>
+              <mat-select required name="category" [(ngModel)]="formDataModel.category">
                 <mat-option value="one">First option</mat-option>
                 <mat-option value="two">Second option</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field style=" width:670px;margin-left: 1%;" appearance="fill">
               <mat-label>Description</mat-label>
-              <textarea rows="1" matInput name="description" [(ngModel)]="formDataModel.description" ></textarea>
+              <textarea required rows="1" matInput name="description" [(ngModel)]="formDataModel.description" ></textarea>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field class="ip" appearance="fill">
               <mat-label>Manufacturer</mat-label>
-              <input matInput name="manufacturer" [(ngModel)]="formDataModel.manufacturer">
+              <input matInput required name="manufacturer" [(ngModel)]="formDataModel.manufacturer">
             </mat-form-field>
             <mat-form-field class="ip space" appearance="fill">
               <mat-label>Asset Name</mat-label>
-              <input matInput name="name" [(ngModel)]="formDataModel.name">
+              <input matInput required name="name" [(ngModel)]="formDataModel.name">
             </mat-form-field>
             <mat-form-field class="ip space" appearance="fill">
               <mat-label>MLFB</mat-label>
-              <input matInput name="mlfb" [(ngModel)]="formDataModel.mlfb">
+              <input matInput required name="mlfb" [(ngModel)]="formDataModel.mlfb">
             </mat-form-field>
           </div>
           <div style="margin-top: 1.5%;">
@@ -56,7 +56,7 @@
             </mat-form-field>
             <mat-form-field class="ip space" appearance="fill">
               <mat-label>Working Condition</mat-label>
-              <mat-select name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
+              <mat-select required name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
                 <mat-option value="one">First option</mat-option>
                 <mat-option value="two">Second option</mat-option>
               </mat-select>
@@ -105,8 +105,8 @@
 
           </div>
           <div style="margin:4% 0%">
-            <button mat-raised-button >Cancel</button>
-            <button type="submit" mat-raised-button style=" background: #627ED1;margin-left: 1%;">Add</button>
+            <button mat-raised-button routerLink="/home">Cancel</button>
+            <button [disabled]="assetForm.form.invalid" type="submit" mat-raised-button  style="margin-left: 1%">Add</button>
           </div>
 </form>
 </div>

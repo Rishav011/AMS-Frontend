@@ -9,8 +9,9 @@ import { FormData } from '../form-data';
 })
 export class AssetDetailsFormComponent implements OnInit {
 
-  currentDate:Date=new Date();
-  formDataModel = new FormData("","","","","","","","","","","","","","","",0,"","");
+  currentDate:Date=new Date;
+  
+  formDataModel = new FormData("","","","","",this.currentDate,"","","","","","","","","",0,"","");
   
   maxDate:Date;
   constructor(private route:ActivatedRoute,private _assetDetailService:AssetDetailService ) { 
@@ -20,17 +21,15 @@ export class AssetDetailsFormComponent implements OnInit {
  
     this.maxDate = new Date(currentYear,currentMonth,currentDate);
   }
-
-
-
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
     // console.log(id);
     if(id!=null)
     this._assetDetailService.getSingleAssetData(id).subscribe(data=>this.formDataModel=data);
-   
-    
-
+  }
+  onSubmit(){
+    this._assetDetailService.postAssetData(this.formDataModel).subscribe(data=>console.log('Success!',data))
+    console.log(this.formDataModel);
   }
 
 }

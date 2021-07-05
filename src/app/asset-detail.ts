@@ -4,7 +4,7 @@ export interface IAssetDetail {
    currentUserEmail:string,
    id:string,
    invoiceNumber:string,
-   invoiceReceiveDate:string,
+   invoiceReceiveDate:Date,
    ipAddress:string,
    location:string,
    manufacturer:string,

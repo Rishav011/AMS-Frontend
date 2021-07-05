@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IAssetDetail } from './asset-detail';
-
+import { FormData } from './form-data';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +16,8 @@ export class AssetDetailService {
   getSingleAssetData(id:string):Observable<IAssetDetail>{
     let modifiedUrl = `${this._url}/${id}`;
     return this.http.get<IAssetDetail>(modifiedUrl);
+  }
+  postAssetData(formData:FormData){
+    return this.http.post<any>(this._url,formData);
   }
 }

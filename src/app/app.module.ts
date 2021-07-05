@@ -17,17 +17,10 @@ import { SiOUXThemeSwitcherModule } from '@simpl/sioux-ng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { AssetDetailsFormComponent } from './asset-details-form/asset-details-form.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 // export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 //   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 // }
@@ -57,14 +50,7 @@ import { MatMenuModule } from '@angular/material/menu';
       //   deps: [HttpClient]
       // }
     }),
-    LayoutModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule
+    LayoutModule
   ],
   bootstrap: [AppComponent]
 })
