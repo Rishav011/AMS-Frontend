@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AssetDetailService } from '../asset-detail.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+import { ChartType ,ChartOptions,ChartDataSets} from 'chart.js';
+import { MultiDataSet,Label } from 'ng2-charts';
 
 
 @Component({
@@ -10,6 +12,53 @@ import {MatIconRegistry} from '@angular/material/icon';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public doughnutChartManufactureLabels:Label[]=['Siemnes','Others'];
+  public doughnutChartManufactureData:MultiDataSet=[
+    [50,30],
+    
+  ];
+  public doughnutChartManufactureType:ChartType='doughnut';
+
+  public doughnutChartAssetLabels:Label[]=['Hardware','Software'];
+  public doughnutChartAssetData:MultiDataSet=[
+    [50,30],
+    
+  ];
+  public doughnutChartAssetType:ChartType='doughnut';
+
+  public BubChartProjectOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      xAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 30,
+        }
+      }]
+    }
+  };
+  
+  
+  public BubChartProjectType: ChartType = 'bubble';
+  public BubChartProjectLegend = true;
+  
+  public BubChartProjectData: ChartDataSets[] = [
+    {
+      data: [
+        { x: 10, y: 10, r: 10 },
+        { x: 15, y: 5, r: 15 },
+        { x: 26, y: 12, r: 23 },
+        { x: 7, y: 8, r: 8 },
+      ],
+      label: 'Projects',
+    },
+  ];
 
   displayedColumns: string[] = ['projectName',
     'category',

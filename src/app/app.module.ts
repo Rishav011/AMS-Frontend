@@ -21,6 +21,7 @@ import { AssetDetailsFormComponent } from './asset-details-form/asset-details-fo
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
 // export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 //   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 // }
@@ -50,7 +51,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       //   deps: [HttpClient]
       // }
     }),
-    LayoutModule
+    LayoutModule,
+    ChartsModule
   ],
   bootstrap: [AppComponent]
 })
