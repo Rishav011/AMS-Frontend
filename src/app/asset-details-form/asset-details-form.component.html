@@ -26,7 +26,7 @@
                 <mat-option value="two">Second option</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field style=" width:670px;margin-left: 1%;" appearance="fill">
+            <mat-form-field class="desc" appearance="fill">
               <mat-label>Description</mat-label>
               <textarea required rows="1" matInput name="description" [(ngModel)]="formDataModel.description" ></textarea>
             </mat-form-field>
@@ -40,7 +40,7 @@
               <mat-label>Asset Name</mat-label>
               <input matInput required name="name" [(ngModel)]="formDataModel.name">
             </mat-form-field>
-            <mat-form-field class="ip space" appearance="fill">
+            <mat-form-field class="ip space ip-unq" appearance="fill">
               <mat-label>MLFB</mat-label>
               <input matInput required name="mlfb" [(ngModel)]="formDataModel.mlfb">
             </mat-form-field>
@@ -54,11 +54,11 @@
               <mat-label>IP Address</mat-label>
               <input matInput name="ipAddress" [(ngModel)]="formDataModel.ipAddress">
             </mat-form-field>
-            <mat-form-field class="ip space" appearance="fill">
+            <mat-form-field class="ip space ip-unq" appearance="fill">
               <mat-label>Working Condition</mat-label>
               <mat-select required name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+                <mat-option value="Yes">Yes</mat-option>
+                <mat-option value="No">No</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -106,7 +106,7 @@
           </div>
           <div style="margin:4% 0%">
             <button mat-raised-button routerLink="/home">Cancel</button>
-            <button [disabled]="assetForm.form.invalid" type="submit" mat-raised-button  style="margin-left: 1%">Add</button>
+            <button [disabled]="assetForm.form.invalid" type="submit" mat-raised-button color="primary" style="background-color:#627ED1;margin-left: 1%">{{buttonName}}</button>
           </div>
 </form>
 </div>

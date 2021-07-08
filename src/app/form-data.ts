@@ -3,7 +3,6 @@ export class FormData {
        public category:string,
        public currentUserEmail:string,
        public description:string,
-       public id:string,
        public invoiceNumber:string,
        public invoiceReceiveDate:Date,
        public ipAddress:string,

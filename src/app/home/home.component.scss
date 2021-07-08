@@ -43,5 +43,16 @@
     // margin-left: 20%
 }
 
+@media only screen and(max-width:1300px) {
+  .btn-group{
+    left: 80%;
+  }
+}
+
+@media only screen and(max-width:1150px) {
+  .btn-group{
+    left: 78%;
+  }
+}
 
   

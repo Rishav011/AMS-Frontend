@@ -18,6 +18,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatNativeDateModule,
     MatMenuModule,
     MatMomentDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +61,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatNativeDateModule,
     MatMenuModule,
     MatMomentDateModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule
   ],
   providers:[
     {provide:MAT_DATE_LOCALE,useValue:'en-GB'}

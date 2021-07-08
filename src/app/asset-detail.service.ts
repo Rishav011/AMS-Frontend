@@ -13,11 +13,18 @@ export class AssetDetailService {
   getAssetData():Observable<IAssetDetail[]>{
     return this.http.get<IAssetDetail[]>(this._url);
   }
+
   getSingleAssetData(id:string):Observable<IAssetDetail>{
     let modifiedUrl = `${this._url}/${id}`;
     return this.http.get<IAssetDetail>(modifiedUrl);
   }
+
   postAssetData(formData:FormData){
+    return this.http.post<any>(this._url,formData);
+  }
+
+  
+  editAssetData(formData:FormData){
     return this.http.post<any>(this._url,formData);
   }
 }
