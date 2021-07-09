@@ -1,4 +1,10 @@
 <label class="main-title">Asset</label>
+<input
+type="file"
+accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+style="display: none;"
+(change)="onFileSelected($event)"
+#fileInput>
 <div class="mat-app-background tablecss">
   <mat-toolbar class="bar">
     <div class="btn-group">
@@ -8,7 +14,7 @@
       <button mat-icon-button routerLink="/asset-form">
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-icon-button routerLink="/asset-form">
+      <button mat-icon-button (click)="fileInput.click()">
         <mat-icon>file_upload</mat-icon>
       </button>
       <button mat-icon-button routerLink="/asset-form">

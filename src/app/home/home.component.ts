@@ -12,6 +12,15 @@ import { MatPaginator } from "@angular/material/paginator";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  selectedFile=null;
+onFileSelected(event)
+{
+  console.log(event);
+  this.selectedFile=event.target.files[0];
+  console.log(this.selectedFile);
+ 
+
+}
   displayedColumns: string[] = [
     "projectName",
     "category",
