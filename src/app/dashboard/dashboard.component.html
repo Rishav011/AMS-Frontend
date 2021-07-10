@@ -53,48 +53,48 @@
       <mat-icon>search</mat-icon>
       <span class="list">Recently Added</span>
     </mat-toolbar>
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource|slice:0:3" class="mat-elevation-z8">
   
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
         
           <!-- Position Column -->
           <ng-container  matColumnDef="projectName">
-            <th  mat-header-cell *matHeaderCellDef  mat-sort-header> Project Name </th>
+            <th  mat-header-cell *matHeaderCellDef> Project Name </th>
             <td mat-cell *matCellDef="let element" > {{element.projectName}} </td>
           </ng-container>
         
           <!-- Name Column -->
           <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef  mat-sort-header> Asset Category </th>
+            <th mat-header-cell *matHeaderCellDef> Asset Category </th>
             <td mat-cell *matCellDef="let element" > {{element.category}} </td>
           </ng-container>
         
           <!-- Weight Column -->
           <ng-container matColumnDef="manufacturer">
-            <th mat-header-cell *matHeaderCellDef  mat-sort-header> Manufacturer </th>
+            <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
             <td mat-cell *matCellDef="let element" > {{element.manufacturer}} </td>
           </ng-container>
         
           <!-- Symbol Column -->
           <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef  mat-sort-header> Description </th>
+            <th mat-header-cell *matHeaderCellDef> Description </th>
             <td mat-cell *matCellDef="let element" > {{element.description}} </td>
           </ng-container>
           <ng-container matColumnDef="mlfb">
-              <th mat-header-cell *matHeaderCellDef  mat-sort-header> MLFB </th>
+              <th mat-header-cell *matHeaderCellDef> MLFB </th>
               <td mat-cell *matCellDef="let element">   {{element.mlfb}} </td>
             </ng-container>
             <ng-container matColumnDef="workingCondition">
-              <th mat-header-cell *matHeaderCellDef  mat-sort-header> Working Condition </th>
+              <th mat-header-cell *matHeaderCellDef> Working Condition </th>
               <td mat-cell *matCellDef="let element" > {{element.workingCondition}} </td>
             </ng-container>
             <ng-container matColumnDef="remark">
-              <th mat-header-cell *matHeaderCellDef   mat-sort-header> Remark </th>
+              <th mat-header-cell *matHeaderCellDef > Remark </th>
               <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
             </ng-container>
             <ng-container matColumnDef="assetName">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Asset Name </th>
+              <th mat-header-cell *matHeaderCellDe> Asset Name </th>
               <td mat-cell *matCellDef="let element" > {{element.assetName}} </td>
             </ng-container>
         

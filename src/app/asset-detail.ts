@@ -13,7 +13,9 @@ export interface IAssetDetail {
    poNumber:string,
    projectName:string,
    remarks:string,
-   serialNumber:number,
+   serialNumber:string,
    supportComm:string,
-   workingCondition:string
+   workingCondition:string,
+   ipType:string,
+   macAddress:string
 }

@@ -56,17 +56,26 @@
             </mat-form-field>
             <mat-form-field class="ip space ip-unq" appearance="fill">
               <mat-label>Working Condition</mat-label>
-              <mat-select required name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
+              <mat-select name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
                 <mat-option value="Yes">Yes</mat-option>
                 <mat-option value="No">No</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
+          <div style="margin-top: 1.5%;">
+            <mat-form-field class="ip" appearance="fill">
+                <mat-label>Asset Located In</mat-label>
+                <mat-select name="location" [(ngModel)]="formDataModel.location">
+                  <mat-option value="one">First option</mat-option>
+                  <mat-option value="two">Second option</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           <div class="title" style="margin-top:4% ;margin-bottom:2%">Invoice Details</div>
           <div  style="margin-top: 1.5%;">
             <mat-form-field appearance="fill" class="ip">
               <mat-label>Choose a date</mat-label>
-              <input  matInput [matDatepicker]="creatoDal" [max]="maxDate"
+              <input required="false" matInput [matDatepicker]="creatoDal" [max]="maxDate"
                             (focus)="creatoDal.open()" readonly name="invoiceReceiveDate" [(ngModel)]="formDataModel.invoiceReceiveDate">
                         <mat-datepicker-toggle matSuffix [for]="creatoDal"></mat-datepicker-toggle>
                         <mat-datepicker  ng-model-options="{timezone: 'utc'}" #creatoDal></mat-datepicker>

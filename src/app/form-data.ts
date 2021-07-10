@@ -14,8 +14,10 @@ export class FormData {
        public poNumber:string,
        public projectName:string,
        public remarks:string,
-       public serialNumber:number,
+       public serialNumber:string,
        public supportComm:string,
-       public workingCondition:string
+       public workingCondition:string,
+       ipType:string,
+       macAddress:string
     ){}
 }
