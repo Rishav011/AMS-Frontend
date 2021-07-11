@@ -37,13 +37,13 @@ export class AssetDetailsFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _assetDetailService: AssetDetailService,
-    private router:Router
+    private router: Router
   ) {
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
     const currentDate = new Date().getDate();
 
-    this.maxDate = new Date(currentYear, currentMonth, currentDate);
+    this.maxDate = new Date(currentYear, currentMonth, currentDate + 1);
   }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id")!;
@@ -58,19 +58,19 @@ export class AssetDetailsFormComponent implements OnInit {
     }
   }
   onSubmit() {
-    let success="false";
+   
     if (this.projectId == null) {
       this._assetDetailService
         .postAssetData(this.formDataModel)
-        .subscribe((data) =>{ console.log("Success!", data);success="true"});
+        .subscribe();
+
+      this.router.navigate(["/home"]);
     } else {
       this._assetDetailService
-        .editAssetData(this.formDataModel)
-        .subscribe((data) =>{ console.log(data);success="true"});
+        .editAssetData(this.formDataModel, this.projectId)
+        .subscribe();
+        
+      this.router.navigate(["/home"]);
     }
-    if(success==="true")
-    this.router.navigate(['/home']);
-    else
-    console.log("Some error");
   }
 }

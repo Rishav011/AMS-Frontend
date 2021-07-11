@@ -15,16 +15,21 @@ export class AssetDetailService {
   }
 
   getSingleAssetData(id:string):Observable<IAssetDetail>{
-    let modifiedUrl = `${this._url}/${id}`;
-    return this.http.get<IAssetDetail>(modifiedUrl);
+    let postUrl = `${this._url}/${id}`;
+    return this.http.get<IAssetDetail>(postUrl);
   }
 
   postAssetData(formData:FormData){
-    return this.http.post<any>(this._url,formData);
+    return this.http.post<IAssetDetail>(this._url,formData);
   }
 
-  
-  editAssetData(formData:FormData){
-    return this.http.post<any>(this._url,formData);
+  editAssetData(formData:FormData,id:string){
+    let postUrl = `${this._url}/${id}`;
+    return this.http.put<IAssetDetail>(postUrl,formData);
+  }
+
+  postExcelData(file:any){
+    let postUrl = `${this._url}/import`;
+    return this.http.post<any>(postUrl,file);
   }
 }
