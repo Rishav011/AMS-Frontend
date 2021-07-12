@@ -13,8 +13,6 @@ import { MatPaginator } from "@angular/material/paginator";
 })
 export class HomeComponent implements OnInit {
 
-selectedFile=null;
-
   displayedColumns: string[] = [
     "projectName",
     "category",
@@ -63,8 +61,11 @@ selectedFile=null;
 onFileSelected(event)
 {
   console.log(event);
-  this.selectedFile=event.target.files[0];
-  console.log(this.selectedFile); 
-  this._assetDetailService.postExcelData(this.selectedFile).subscribe((data)=>console.log("Success!",data));
+  const selectedFile=event.target.files[0];
+  const formData = new FormData();
+  formData.append('formFile',selectedFile);
+  console.log(selectedFile); 
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>console.log("Success!",data));
+  location.reload()
 }
 }
