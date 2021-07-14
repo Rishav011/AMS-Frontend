@@ -17,7 +17,7 @@ export class FormData {
        public serialNumber:string,
        public supportComm:string,
        public workingCondition:string,
-       ipType:string,
-       macAddress:string
+       public ipType:string,
+       public macAddress:string
     ){}
 }

@@ -22,8 +22,8 @@
             <mat-form-field class="ip" appearance="fill">
               <mat-label>Asset Category</mat-label>
               <mat-select required name="category" [(ngModel)]="formDataModel.category">
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+                <mat-option value="Hardware">Hardware</mat-option>
+                <mat-option value="Software">Software</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field class="desc" appearance="fill">
@@ -50,10 +50,12 @@
               <mat-label>Support Communication</mat-label>
               <input matInput name="supportComm" [(ngModel)]="formDataModel.supportComm">
             </mat-form-field>
+           
             <mat-form-field class="ip space" appearance="fill">
-              <mat-label>IP Address</mat-label>
-              <input matInput name="ipAddress" [(ngModel)]="formDataModel.ipAddress">
+              <mat-label >Serial Number</mat-label>
+              <input matInput name="serialNumber" [(ngModel)]="formDataModel.serialNumber">
             </mat-form-field>
+
             <mat-form-field class="ip space ip-unq" appearance="fill">
               <mat-label>Working Condition</mat-label>
               <mat-select name="workingCondition" [(ngModel)]="formDataModel.workingCondition">
@@ -61,6 +63,7 @@
                 <mat-option value="No">No</mat-option>
               </mat-select>
             </mat-form-field>
+            
           </div>
           <div style="margin-top: 1.5%;">
             <mat-form-field class="ip" appearance="fill">
@@ -69,6 +72,23 @@
                   <mat-option value="one">First option</mat-option>
                   <mat-option value="two">Second option</mat-option>
                 </mat-select>
+              </mat-form-field>
+              <mat-form-field class="ip space" appearance="fill">
+                <mat-label>IP Address</mat-label>
+                <input matInput name="ipAddress" [(ngModel)]="formDataModel.ipAddress">
+              </mat-form-field>
+              <mat-form-field class="ip space ip-unq" appearance="fill">
+                <mat-label>IP Type</mat-label>
+                <mat-select name="ipType" [(ngModel)]="formDataModel.ipType">
+                  <mat-option value="Static">Static</mat-option>
+                  <mat-option value="Dynamic">Dynamic</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div style="margin-top: 1.5%;">
+              <mat-form-field class="ip" appearance="fill">
+                <mat-label>MAC Address</mat-label>
+                <input matInput name="macAddress" [(ngModel)]="formDataModel.macAddress">
               </mat-form-field>
             </div>
           <div class="title" style="margin-top:4% ;margin-bottom:2%">Invoice Details</div>
@@ -80,20 +100,19 @@
                         <mat-datepicker-toggle matSuffix [for]="creatoDal"></mat-datepicker-toggle>
                         <mat-datepicker  ng-model-options="{timezone: 'utc'}" #creatoDal></mat-datepicker>
               </mat-form-field>
-            <mat-form-field class="ip space" appearance="fill">
-              <mat-label >Serial Number</mat-label>
-              <input matInput name="serialNumber" [(ngModel)]="formDataModel.serialNumber">
-            </mat-form-field>
+           
+              <mat-form-field class="ip space" appearance="fill">
+                <mat-label>PO Number</mat-label>
+                <input matInput name="poNumber" [(ngModel)]="formDataModel.poNumber">
+              </mat-form-field>
+
           </div>
           <div  style="margin-top: 1.5%;">
             <mat-form-field class="ip" appearance="fill">
               <mat-label>Invoice Number</mat-label>
               <input matInput name="invoiceNumber" [(ngModel)]="formDataModel.invoiceNumber">
             </mat-form-field>
-            <mat-form-field class="ip space" appearance="fill">
-              <mat-label>PO Number</mat-label>
-              <input matInput name="poNumber" [(ngModel)]="formDataModel.poNumber">
-            </mat-form-field>
+           
           </div>
           <div class="title" style="margin-top:4% ;margin-bottom:2%">User Detail</div>
           <div  style="margin-top: 1.5%;">

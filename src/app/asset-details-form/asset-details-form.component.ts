@@ -8,7 +8,7 @@ import { FormData } from "../form-data";
   styleUrls: ["./asset-details-form.component.scss"],
 })
 export class AssetDetailsFormComponent implements OnInit {
-  currentDate: Date = new Date("");
+  currentDate: Date = new Date();
   public projectId: string = "";
   public buttonName: string = "Add";
   formDataModel = new FormData(
@@ -29,8 +29,8 @@ export class AssetDetailsFormComponent implements OnInit {
     "",
     "",
     "",
-    "static",
-    "32-6D-9F-50-51-53"
+    "",
+    ""
   );
 
   maxDate: Date;
