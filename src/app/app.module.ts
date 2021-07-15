@@ -22,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './shared/material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
+import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
+import { DialogUploadStatusComponent } from './dialog-upload-status/dialog-upload-status.component';
 // export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 //   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 // }
@@ -32,8 +34,11 @@ import { ChartsModule } from 'ng2-charts';
     MainNavComponent,
     AssetDetailsFormComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    DialogUploadComponent,
+    DialogUploadStatusComponent
   ],
+  entryComponents:[DialogUploadComponent,DialogUploadStatusComponent],
   imports: [
     BrowserModule,
     FormsModule,
