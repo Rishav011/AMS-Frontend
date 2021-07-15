@@ -73,9 +73,9 @@ export class DashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['projectName',
     'category',
-    'manufacturer',
+    'name',
     'description',
-    'workingCondition',
+    'mlfb',
   ];
   dataSource:any=[];
 
@@ -86,12 +86,10 @@ export class DashboardComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'ok',
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/ok-filled.svg'));
-    iconRegistry.addSvgIcon(
-      'folder',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/folder-filled.svg'));
-    iconRegistry.addSvgIcon(
-      'search',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/search.svg'));
+      iconRegistry.addSvgIcon(
+        'folder',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/folder-filled.svg'));
+   
   }
 
   ngOnInit(): void {

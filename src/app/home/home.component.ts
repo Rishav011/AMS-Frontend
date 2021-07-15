@@ -31,24 +31,29 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(MatSort) sort!:MatSort;
   @ViewChild('paginator') paginator!:MatPaginator;
+  @ViewChild('fileInput') myFileInput;
 
   constructor(
     private _assetDetailService: AssetDetailService,
     private router: Router
-  ) {
+  ) {}
 
-  }
-
-  ngOnInit(): void {
+  makeSubscription(){
     this._assetDetailService.getAssetData().subscribe((data) => {
       this.elementData = data;
       this.dataSource.data =this.elementData;
       // console.log(this.dataSource);
     });
   }
+  ngOnInit(): void {
+   this.makeSubscription();
+  }
   ngAfterViewInit(){
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.paginator;
+  }
+  refresh(){
+   this.makeSubscription()
   }
   getId(data: string) {
     this.rowId = data;
@@ -58,14 +63,18 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/asset-form", { id: this.rowId }]);
   }
 
-onFileSelected(event)
+onFileSelected(event:any)
 {
-  console.log(event);
   const selectedFile=event.target.files[0];
   const formData = new FormData();
   formData.append('formFile',selectedFile);
-  console.log(selectedFile); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>console.log("Success!",data));
-  location.reload()
+  // console.log(selectedFile); 
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.refresh()},(error)=>console.log(error));
+  //for importing same file twice
+  this.myFileInput.nativeElement.value='';
+}
+
+deleteAllAssets(){
+  this._assetDetailService.deleteAllAssets().subscribe((data)=>this.refresh());
 }
 }

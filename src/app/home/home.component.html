@@ -1,4 +1,4 @@
-<label class="main-title">Asset</label>
+<label class="main-title">Asset Overview</label>
 <input
 type="file"
 accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
@@ -92,7 +92,7 @@ style="display: none;"
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
     <tr
       mat-row
       *matRowDef="let row; columns: displayedColumns"
@@ -101,4 +101,5 @@ style="display: none;"
   </table>
   <mat-paginator #paginator [pageSizeOptions]="[6,9, 15]" 
   showFirstLastButtons></mat-paginator>
+  <button (click)="deleteAllAssets()">Delete All</button>
 </div>

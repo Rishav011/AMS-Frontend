@@ -22,6 +22,13 @@
     // margin-right: 2%;
     
   }
+  .mat-column-description {
+    white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:100px;
+
+  }
+  .mat-column-remarks {
+    white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:100px;
+  }
   .list{
     position:absolute;
     width: 70px;
@@ -47,8 +54,10 @@
     // margin-left: 20%
 }
 mat-paginator{
-  position: relative;
   width: 100%;
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
 }
 
 @media only screen and(max-width:1300px) {

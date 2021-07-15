@@ -39,56 +39,42 @@
         </div>
         <div class="mat-app-background tablecss">
           <mat-toolbar class="bar">
-            <mat-icon >filter_list</mat-icon>
-            <mat-icon>search</mat-icon>
+           
             <span class="list">Recently Added</span>
           </mat-toolbar>
-            <table mat-table [dataSource]="dataSource|slice:0:3" class="mat-elevation-z8">
-        
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
+            <table mat-table [dataSource]="dataSource|slice:0:6" class="mat-elevation-z8">
               
-                <!-- Position Column -->
+                <!-- Project Name Column -->
                 <ng-container  matColumnDef="projectName">
                   <th  mat-header-cell *matHeaderCellDef> Project Name </th>
                   <td mat-cell *matCellDef="let element" > {{element.projectName}} </td>
                 </ng-container>
               
-                <!-- Name Column -->
+                <!-- Category Column -->
                 <ng-container matColumnDef="category">
                   <th mat-header-cell *matHeaderCellDef> Asset Category </th>
                   <td mat-cell *matCellDef="let element" > {{element.category}} </td>
                 </ng-container>
               
-                <!-- Weight Column -->
-                <ng-container matColumnDef="manufacturer">
-                  <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
-                  <td mat-cell *matCellDef="let element" > {{element.manufacturer}} </td>
+                <!-- Asset Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef >Asset Name</th>
+                  <td mat-cell *matCellDef="let element">{{ element.name }}</td>
                 </ng-container>
               
-                <!-- Symbol Column -->
+                <!-- Description Column -->
                 <ng-container matColumnDef="description">
                   <th mat-header-cell *matHeaderCellDef> Description </th>
                   <td mat-cell *matCellDef="let element" > {{element.description}} </td>
                 </ng-container>
+
+                <!-- MLFB Column -->
                 <ng-container matColumnDef="mlfb">
                     <th mat-header-cell *matHeaderCellDef> MLFB </th>
                     <td mat-cell *matCellDef="let element">   {{element.mlfb}} </td>
                   </ng-container>
-                  <ng-container matColumnDef="workingCondition">
-                    <th mat-header-cell *matHeaderCellDef> Working Condition </th>
-                    <td mat-cell *matCellDef="let element" > {{element.workingCondition}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="remark">
-                    <th mat-header-cell *matHeaderCellDef > Remark </th>
-                    <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
-                  </ng-container>
-                  <ng-container matColumnDef="assetName">
-                    <th mat-header-cell *matHeaderCellDe> Asset Name </th>
-                    <td mat-cell *matCellDef="let element" > {{element.assetName}} </td>
-                  </ng-container>
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
         </div>

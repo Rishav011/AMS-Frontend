@@ -19,3 +19,8 @@ export interface IAssetDetail {
    ipType:string,
    macAddress:string
 }
+
+export interface IProjectName{
+   id:number,
+   name:string
+}

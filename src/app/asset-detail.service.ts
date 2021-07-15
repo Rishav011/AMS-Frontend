@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IAssetDetail } from './asset-detail';
+import { IAssetDetail, IProjectName } from './asset-detail';
 import { FormData } from './form-data';
 @Injectable({
   providedIn: 'root'
@@ -32,4 +32,17 @@ export class AssetDetailService {
     let postUrl = `${this._url}/import`;
     return this.http.post<any>(postUrl,file);
   }
+
+  getProjectsName():Observable<IProjectName[]>{
+    let getUrl="http://localhost:25160/api/projects";
+    return this.http.get<IProjectName[]>(getUrl);
+  }
+
+  //for Debugging only!
+  deleteAllAssets(){
+    let deleteUrl = `${this._url}/clear`;
+    return this.http.delete(deleteUrl);
+  }
 }
+
+
