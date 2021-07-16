@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
+import { MatDialog } from "@angular/material/dialog";
+import { DialogUploadComponent } from "../dialog-upload/dialog-upload.component";
 
 @Component({
   selector: "app-home",
@@ -12,7 +14,6 @@ import { MatPaginator } from "@angular/material/paginator";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-
   displayedColumns: string[] = [
     "projectName",
     "category",
@@ -35,8 +36,16 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _assetDetailService: AssetDetailService,
-    private router: Router
+    private router: Router,
+    public dialog:MatDialog
   ) {}
+
+  openDialog(){
+    let dialogRef =this.dialog.open(DialogUploadComponent);
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log(result);
+    });
+  }
 
   makeSubscription(){
     this._assetDetailService.getAssetData().subscribe((data) => {

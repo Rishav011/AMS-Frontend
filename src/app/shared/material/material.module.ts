@@ -19,6 +19,8 @@ import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/mat
 import {MatMenuModule} from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatMenuModule,
     MatMomentDateModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatProgressBarModule
   ],
   exports: [
     MatButtonModule,
@@ -62,7 +66,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatMenuModule,
     MatMomentDateModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers:[
     {provide:MAT_DATE_LOCALE,useValue:'en-GB'},
