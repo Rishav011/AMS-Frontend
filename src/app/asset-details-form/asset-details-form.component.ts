@@ -50,7 +50,7 @@ export class AssetDetailsFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._assetDetailService.getProjectsName().subscribe((data)=>{this.projectNames=data;console.log(this.projectNames)});
+    this._assetDetailService.getProjectsName().subscribe((data)=>this.projectNames=data);
     const id = this.route.snapshot.paramMap.get("id")!;
     this.projectId = id;
     // console.log(id);
@@ -58,7 +58,7 @@ export class AssetDetailsFormComponent implements OnInit {
       this.buttonName = "Update";
       this._assetDetailService.getSingleAssetData(id).subscribe((data) => {
         this.formDataModel = data;
-        // console.log(data);
+        console.log(data);
       });
     }
   }

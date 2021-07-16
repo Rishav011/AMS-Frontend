@@ -50,8 +50,12 @@ opacity: 1;
 .tablecss{
 margin: 1%;
 margin-bottom:10%;
-height: 200px;
+height: 250px;
 overflow: auto;
+}
+.mat-column-description {
+  white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:100px;
+
 }
 .bar{
 direction: rtl;
