@@ -13,6 +13,7 @@
               <button (click)="fileInput.click()" mat-raised-button color="primary" style="background-color:#627ED1;">Browse Files</button>
         </div>
       </div>
+      <mat-spinner [diameter]="40" class="spinner" *ngIf="showSpinner"></mat-spinner>
   </mat-dialog-content>
   <mat-dialog-actions>
       <button mat-button mat-dialog-close mat-dialog-close="false" class="button">Download Template</button>
