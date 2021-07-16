@@ -10,7 +10,8 @@ import { DialogUploadStatusComponent } from '../dialog-upload-status/dialog-uplo
 })
 export class DialogUploadComponent implements OnInit {
 
-  done:boolean=false;
+  succ:boolean=false;
+  fileName:any;
 
   constructor(private _assetDetailService: AssetDetailService,public dialog:MatDialog,public dialogRef: MatDialogRef<DialogUploadComponent>) { }
 
@@ -18,7 +19,7 @@ export class DialogUploadComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialog.open(DialogUploadStatusComponent,{data:{done:this.done}});
+    this.dialog.open(DialogUploadStatusComponent,{data:{succ:this.succ,fileName:this.fileName}});
   }
 
   onFileSelected(event:any)
@@ -27,13 +28,16 @@ export class DialogUploadComponent implements OnInit {
   const formData = new FormData();
   formData.append('formFile',selectedFile);
   console.log(selectedFile); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.done=true;},(error)=>console.log(error));
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.succ=true;},(error)=>console.log(error));
+  this.fileName=selectedFile.name;
+  console.log(this.fileName);
+
   //for importing same file twice
   //this.myFileInput.nativeElement.value='';
   this.openDialog();
 }
 closeDialog() {
-  this.dialogRef.close(this.done);
+  this.dialogRef.close(this.succ);
 }
 
 }
