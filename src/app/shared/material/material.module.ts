@@ -21,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatGridListModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -68,7 +70,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatGridListModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers:[
     {provide:MAT_DATE_LOCALE,useValue:'en-GB'},

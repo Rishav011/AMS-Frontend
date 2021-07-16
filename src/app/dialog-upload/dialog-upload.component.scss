@@ -39,3 +39,9 @@ opacity: 1;
     display: flex;
     justify-content: center;
 }
+.spinner{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    z-index:1;
+}

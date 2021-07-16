@@ -12,6 +12,7 @@ export class DialogUploadComponent implements OnInit {
 
   succ:boolean=false;
   fileName:any;
+  showSpinner=false;
 
   constructor(private _assetDetailService: AssetDetailService,public dialog:MatDialog,public dialogRef: MatDialogRef<DialogUploadComponent>) { }
 
@@ -24,17 +25,18 @@ export class DialogUploadComponent implements OnInit {
 
   onFileSelected(event:any)
 {
+  this.showSpinner=true;
   const selectedFile=event.target.files[0];
   const formData = new FormData();
   formData.append('formFile',selectedFile);
-  console.log(selectedFile); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.succ=true;},(error)=>console.log(error));
+  console.log(selectedFile);
   this.fileName=selectedFile.name;
-  console.log(this.fileName);
+  console.log(this.fileName); 
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.succ=true;this.showSpinner=false;this.openDialog();},(error)=>{console.log(error);this.showSpinner=false;this.openDialog();});
+  
 
   //for importing same file twice
   //this.myFileInput.nativeElement.value='';
-  this.openDialog();
 }
 closeDialog() {
   this.dialogRef.close(this.succ);
