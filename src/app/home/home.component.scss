@@ -6,12 +6,24 @@
   position: relative;
   left: 83%;
 }
+.btn-group2 {
+ 
+  // padding: 50px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  position: relative;
+  left: 80%;
+}
+mat-form-field{
+  position: relative;left: 80%;margin-top: 15px;font-size:13px;width:100px
+}
 .bar{
   position: relative;
   margin-top: 5.7%;
   margin-left: 2%;
   width: 95%;
 }
+
 .tablecss{
     position: absolute;
     width: 95%;
@@ -53,7 +65,7 @@
     margin-bottom: 10%;
     // margin-left: 20%
 }
-mat-paginator{
+.tbar{
   width: 100%;
   bottom: 0px;
   position: sticky;
@@ -64,11 +76,24 @@ mat-paginator{
   .btn-group{
     left: 80%;
   }
+  .btn-group2{
+    left: 77%;
+  }
+  mat-form-field{
+    left: 77%;
+  }
 }
 
 @media only screen and(max-width:1150px) {
   .btn-group{
     left: 78%;
+  }
+ 
+  .btn-group2{
+    left: 75%;
+  }
+  mat-form-field{
+    left: 75%;
   }
 }
 

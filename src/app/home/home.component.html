@@ -94,16 +94,23 @@
     ></tr>
   </table>
   
+  
+  
+  <mat-toolbar class="tbar">
     <button (click)="deleteAllAssets()">Delete All</button>
-    <button (click)="prevPage()" [disabled]="pageNo==1">Previous page</button>
-    <button (click)="nextPage()">Next page</button>
     <mat-form-field appearance="fill">
-      <mat-label>Page Size</mat-label>
+      <mat-label>Items per Page</mat-label>
       <mat-select (ngModelChange)="onChange($event)" [(ngModel)]="pageSize">
         <mat-option selected value="6">6</mat-option>
         <mat-option value="9">9</mat-option>
         <mat-option value="15">15</mat-option>
       </mat-select>
     </mat-form-field>
-
+    <div class="btn-group2">
+      
+      <button mat-icon-button (click)="prevPage()" [disabled]="pageNo==1"> <mat-icon>keyboard_arrow_left</mat-icon></button>
+      <button  mat-icon-button (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+  </mat-toolbar>
+  
 </div>
