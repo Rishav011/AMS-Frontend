@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IAssetDetail, IProjectName } from './asset-detail';
+import { IAssetDetail, IProjectName, ITotalAssetDetail } from './asset-detail';
 import { FormData } from './form-data';
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,10 @@ export class AssetDetailService {
   private _url:string="http://localhost:25160/api/assets";
   constructor(private http:HttpClient) { }
   
-  getAssetData(page:number,pageSize:string):Observable<IAssetDetail[]>{
+  getAssetData(page:number,pageSize:string):Observable<ITotalAssetDetail>{
     let getUrl = `${this._url}?page=${page}&pageSize=${pageSize}`
     // console.log(getUrl);
-    return this.http.get<IAssetDetail[]>(getUrl);
+    return this.http.get<ITotalAssetDetail>(getUrl);
   }
 
   getSingleAssetData(id:string):Observable<IAssetDetail>{
@@ -44,5 +44,9 @@ export class AssetDetailService {
   deleteAllAssets(){
     let deleteUrl = `${this._url}/clear`;
     return this.http.delete(deleteUrl);
+  }
+  exportAsset(){
+    let exportUrl=`${this._url}/export`;
+   return this.http.get(exportUrl,{responseType:'blob'});
   }
 }

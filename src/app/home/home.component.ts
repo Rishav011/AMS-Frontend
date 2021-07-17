@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { IAssetDetail } from "../asset-detail";
+import { IAssetDetail, ITotalAssetDetail } from "../asset-detail";
 import { AssetDetailService } from "../asset-detail.service";
 import { Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogUploadComponent } from "../dialog-upload/dialog-upload.component";
-
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -28,10 +27,11 @@ export class HomeComponent implements OnInit {
   rowId: string = "";
   dataSource:MatTableDataSource<IAssetDetail>= new MatTableDataSource();
   elementData:IAssetDetail[]=[];
-
+  totalData:ITotalAssetDetail={pages:2,currPage:1,data:[]};
   public pageNo=1;
   public selectedOption=6;
   public pageSize:string="6";
+
   @ViewChild(MatSort) sort!:MatSort;
 
   constructor(
@@ -68,17 +68,18 @@ export class HomeComponent implements OnInit {
   makeSubscription(page:number,pageSize:string){
     
     this._assetDetailService.getAssetData(page,pageSize).subscribe((data) => {
-      this.elementData = data;
+      this.totalData=data;
+      this.elementData = data.data;
       this.dataSource.data =this.elementData;
-      // console.log(this.dataSource);
+      // console.log(data);
     });
   }
   ngOnInit(): void {
    this.makeSubscription(1,this.pageSize);
   }
+
   ngAfterViewInit(){
-    this.dataSource.sort=this.sort;
-   
+    this.dataSource.sort=this.sort; 
   }
 
   refresh(page:number,pageSize:string){
@@ -92,8 +93,25 @@ export class HomeComponent implements OnInit {
   goToForms() {
     this.router.navigate(["/asset-form", { id: this.rowId }]);
   }
-
+  
+  exportButton(){
+   this._assetDetailService.exportAsset().subscribe((response:any)=>{
+     console.log(response);
+     let filename="Assets-List";
+     let dataType=response.type;
+     let binaryData:any=[];
+     binaryData.push(response);
+     let downloadLink = document.createElement('a');
+     downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: dataType }));
+     if (filename) {
+       downloadLink.setAttribute('download', filename);
+     }
+     document.body.appendChild(downloadLink);
+     downloadLink.click();
+   })
+  }
 deleteAllAssets(){
   this._assetDetailService.deleteAllAssets().subscribe((data)=>this.refresh(this.pageNo,this.pageSize));
 }
+
 }

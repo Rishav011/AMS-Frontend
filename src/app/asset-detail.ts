@@ -24,3 +24,9 @@ export interface IProjectName{
    id:number,
    name:string
 }
+
+export interface ITotalAssetDetail{
+   pages:number,
+   currPage:number,
+   data:IAssetDetail[]
+}

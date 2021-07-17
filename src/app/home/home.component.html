@@ -10,7 +10,7 @@
       <button mat-icon-button (click)="openDialog()">
         <mat-icon>file_upload</mat-icon>
       </button>
-      <button mat-icon-button routerLink="/asset-form">
+      <button mat-icon-button (click)="exportButton()">
         <mat-icon>file_download</mat-icon>
       </button>
       <button mat-icon-button routerLink="/asset-form">
@@ -109,7 +109,7 @@
     <div class="btn-group2">
       
       <button mat-icon-button (click)="prevPage()" [disabled]="pageNo==1"> <mat-icon>keyboard_arrow_left</mat-icon></button>
-      <button  mat-icon-button (click)="nextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+      <button  mat-icon-button (click)="nextPage()"[disabled]="pageNo==totalData.pages"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
   </mat-toolbar>
   
