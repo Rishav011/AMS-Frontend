@@ -10,17 +10,18 @@ import { DialogUploadStatusComponent } from '../dialog-upload-status/dialog-uplo
 })
 export class DialogUploadComponent implements OnInit {
 
-  succ:boolean=false;
+  //succ:boolean=false;
   fileName:any;
   showSpinner=false;
+  isActive: boolean=false;
 
   constructor(private _assetDetailService: AssetDetailService,public dialog:MatDialog,public dialogRef: MatDialogRef<DialogUploadComponent>) { }
 
   ngOnInit(): void {
   }
 
-  openDialog(){
-    this.dialog.open(DialogUploadStatusComponent,{data:{succ:this.succ,fileName:this.fileName}});
+  openDialog(succ:boolean){
+    this.dialog.open(DialogUploadStatusComponent,{data:{succ:succ,fileName:this.fileName}});
   }
 
   onFileSelected(event:any)
@@ -32,13 +33,42 @@ export class DialogUploadComponent implements OnInit {
   console.log(selectedFile);
   this.fileName=selectedFile.name;
   console.log(this.fileName); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.succ=true;this.showSpinner=false;this.openDialog();},(error)=>{console.log(error);this.showSpinner=false;this.openDialog();});
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{console.log(error);this.showSpinner=false;this.openDialog(false);});
   
   //for importing same file twice
   //this.myFileInput.nativeElement.value='';
 }
 closeDialog() {
-  this.dialogRef.close(this.succ);
+  this.dialogRef.close(true);
+}
+
+onDragOver(event: any) {
+  event.preventDefault();
+  event.stopPropagation();
+  this.isActive = true;
+  console.log('Drag over');
+}
+
+onDragLeave(event: any) {
+  event.preventDefault();
+  event.stopPropagation();
+  this.isActive = false;
+  console.log('Drag leave');
+}
+
+onDrop(event: any) {
+  console.log('drop leave');
+  event.preventDefault();
+  event.stopPropagation();
+  this.showSpinner=true;
+  const selectedFile=event.dataTransfer.files[0];
+  const formData = new FormData();
+  formData.append('formFile',selectedFile);
+  console.log(selectedFile);
+  this.fileName=selectedFile.name;
+  console.log(this.fileName); 
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{console.log(error);this.showSpinner=false;this.openDialog(false);});
+  this.isActive = false;
 }
 
 }
