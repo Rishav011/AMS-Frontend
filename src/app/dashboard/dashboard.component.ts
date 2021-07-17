@@ -12,7 +12,7 @@ import { MultiDataSet,Label } from 'ng2-charts';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  public doughnutChartManufactureLabels:Label[]=['Siemnes','Others'];
+  public doughnutChartManufactureLabels:Label[]=['Siemens','Others'];
   public doughnutChartManufactureData:MultiDataSet=[
     [50,30],
     
@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._assetDetailService.getAssetData().subscribe(data => this.dataSource=data);
+    this._assetDetailService.getAssetData(1,"6").subscribe(data => this.dataSource=data);
   }
 
 }

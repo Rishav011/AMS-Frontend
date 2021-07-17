@@ -4,7 +4,6 @@ import { AssetDetailService } from "../asset-detail.service";
 import { Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatSort } from "@angular/material/sort";
-import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogUploadComponent } from "../dialog-upload/dialog-upload.component";
 
@@ -30,9 +29,10 @@ export class HomeComponent implements OnInit {
   dataSource:MatTableDataSource<IAssetDetail>= new MatTableDataSource();
   elementData:IAssetDetail[]=[];
 
+  public pageNo=1;
+  public selectedOption=6;
+  public pageSize:string="6";
   @ViewChild(MatSort) sort!:MatSort;
-  @ViewChild('paginator') paginator!:MatPaginator;
-  @ViewChild('fileInput') myFileInput;
 
   constructor(
     private _assetDetailService: AssetDetailService,
@@ -40,30 +40,51 @@ export class HomeComponent implements OnInit {
     public dialog:MatDialog
   ) {}
 
+  nextPage(){
+    this.pageNo++;
+    // console.log(this.pageNo);
+    this.refresh(this.pageNo,this.pageSize);
+  }
+  prevPage(){
+    this.pageNo--;
+    // console.log(this.pageNo);
+    this.refresh(this.pageNo,this.pageSize);
+  }
+
+  onChange(value){
+    this.pageSize = value;
+    // console.log(this.pageSize);
+    this.refresh(this.pageNo,this.pageSize);
+  }
+
   openDialog(){
     let dialogRef =this.dialog.open(DialogUploadComponent);
     dialogRef.afterClosed().subscribe(result=>{
       console.log(result);
+      this.refresh(this.pageNo,this.pageSize);
     });
   }
 
-  makeSubscription(){
-    this._assetDetailService.getAssetData().subscribe((data) => {
+  makeSubscription(page:number,pageSize:string){
+    
+    this._assetDetailService.getAssetData(page,pageSize).subscribe((data) => {
       this.elementData = data;
       this.dataSource.data =this.elementData;
       // console.log(this.dataSource);
     });
   }
   ngOnInit(): void {
-   this.makeSubscription();
+   this.makeSubscription(1,this.pageSize);
   }
   ngAfterViewInit(){
     this.dataSource.sort=this.sort;
-    this.dataSource.paginator=this.paginator;
+   
   }
-  refresh(){
-   this.makeSubscription()
+
+  refresh(page:number,pageSize:string){
+   this.makeSubscription(page,pageSize);
   }
+
   getId(data: string) {
     this.rowId = data;
     // console.log(this.rowId);
@@ -72,18 +93,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/asset-form", { id: this.rowId }]);
   }
 
-onFileSelected(event:any)
-{
-  const selectedFile=event.target.files[0];
-  const formData = new FormData();
-  formData.append('formFile',selectedFile);
-  // console.log(selectedFile); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.refresh()},(error)=>console.log(error));
-  //for importing same file twice
-  this.myFileInput.nativeElement.value='';
-}
-
 deleteAllAssets(){
-  this._assetDetailService.deleteAllAssets().subscribe((data)=>this.refresh());
+  this._assetDetailService.deleteAllAssets().subscribe((data)=>this.refresh(this.pageNo,this.pageSize));
 }
 }

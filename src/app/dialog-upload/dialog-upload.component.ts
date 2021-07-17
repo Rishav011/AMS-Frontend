@@ -34,7 +34,6 @@ export class DialogUploadComponent implements OnInit {
   console.log(this.fileName); 
   this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.succ=true;this.showSpinner=false;this.openDialog();},(error)=>{console.log(error);this.showSpinner=false;this.openDialog();});
   
-
   //for importing same file twice
   //this.myFileInput.nativeElement.value='';
 }

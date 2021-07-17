@@ -1,10 +1,4 @@
 <label class="main-title">Asset Overview</label>
-<input
-type="file"
-accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
-style="display: none;"
-(change)="onFileSelected($event)"
-#fileInput>
 <mat-toolbar class="bar">
   <div class="btn-group">
     <button mat-icon-button routerLink="/asset-form">
@@ -13,7 +7,7 @@ style="display: none;"
       <button mat-icon-button routerLink="/asset-form">
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-icon-button (click)="fileInput.click()">
+      <button mat-icon-button (click)="openDialog()">
         <mat-icon>file_upload</mat-icon>
       </button>
       <button mat-icon-button routerLink="/asset-form">
@@ -22,7 +16,6 @@ style="display: none;"
       <button mat-icon-button routerLink="/asset-form">
         <mat-icon>filter_list</mat-icon>
       </button>
-      <button (click)="openDialog()">Demo dialog</button>
     </div>
     
     <span class="list">Asset List</span>
@@ -100,7 +93,17 @@ style="display: none;"
       (click)="getId(row.id)"
     ></tr>
   </table>
-  <mat-paginator #paginator [pageSizeOptions]="[6,9, 15]" 
-  showFirstLastButtons></mat-paginator>
-  <button (click)="deleteAllAssets()">Delete All</button>
+  
+    <button (click)="deleteAllAssets()">Delete All</button>
+    <button (click)="prevPage()" [disabled]="pageNo==1">Previous page</button>
+    <button (click)="nextPage()">Next page</button>
+    <mat-form-field appearance="fill">
+      <mat-label>Page Size</mat-label>
+      <mat-select (ngModelChange)="onChange($event)" [(ngModel)]="pageSize">
+        <mat-option selected value="6">6</mat-option>
+        <mat-option value="9">9</mat-option>
+        <mat-option value="15">15</mat-option>
+      </mat-select>
+    </mat-form-field>
+
 </div>

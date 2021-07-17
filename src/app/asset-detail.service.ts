@@ -10,8 +10,10 @@ export class AssetDetailService {
   private _url:string="http://localhost:25160/api/assets";
   constructor(private http:HttpClient) { }
   
-  getAssetData():Observable<IAssetDetail[]>{
-    return this.http.get<IAssetDetail[]>(this._url);
+  getAssetData(page:number,pageSize:string):Observable<IAssetDetail[]>{
+    let getUrl = `${this._url}?page=${page}&pageSize=${pageSize}`
+    // console.log(getUrl);
+    return this.http.get<IAssetDetail[]>(getUrl);
   }
 
   getSingleAssetData(id:string):Observable<IAssetDetail>{
@@ -44,5 +46,3 @@ export class AssetDetailService {
     return this.http.delete(deleteUrl);
   }
 }
-
-
