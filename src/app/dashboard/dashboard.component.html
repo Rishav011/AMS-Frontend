@@ -2,10 +2,10 @@
   <div class="dashboard">Dashboard</div>
   <div class="bgdata">
     <div style="display: flex;flex-wrap: wrap;">
-      <mat-card class="ip"><mat-icon svgIcon="group2" class="group"></mat-icon><span class="bright_text">100</span><span class="blur_text">Total Assets</span></mat-card>
-      <mat-card class="ip"><mat-icon svgIcon="folder" class="group"></mat-icon><span class="bright_text">100</span><span class="blur_text">Total Projects</span></mat-card>
-      <mat-card class="ip"><mat-icon svgIcon="ok" class="group"></mat-icon><span class="bright_text">100</span><span class="blur_text">No.of Working Assets</span></mat-card>
-      <mat-card class="ip"><mat-icon svgIcon="group2" class="group"></mat-icon><span class="bright_text">100</span><span class="blur_text">Manufacturer</span></mat-card>
+      <mat-card class="ip"><mat-icon svgIcon="group2" class="group"></mat-icon><span class="bright_text">{{totalAssetCount}}</span><span class="blur_text">Total Assets</span></mat-card>
+      <mat-card class="ip"><mat-icon svgIcon="folder" class="group"></mat-icon><span class="bright_text">{{totalProjectCount}}</span><span class="blur_text">Total Projects</span></mat-card>
+      <mat-card class="ip"><mat-icon svgIcon="ok" class="group"></mat-icon><span class="bright_text">{{workingAssetCount}}</span><span class="blur_text">No.of Working Assets</span></mat-card>
+      <mat-card class="ip"><mat-icon svgIcon="group2" class="group"></mat-icon><span class="bright_text">{{totalManufacturerCount}}</span><span class="blur_text">Manufacturer</span></mat-card>
     </div>
     <div style="display: flex;flex-wrap: wrap-reverse;">
       <div style="display: flexbox;width: 880px;">
@@ -42,7 +42,7 @@
            
             <span class="list">Recently Added</span>
           </mat-toolbar>
-            <table mat-table [dataSource]="dataSource|slice:0:6" class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
               
                 <!-- Project Name Column -->
                 <ng-container  matColumnDef="projectName">
