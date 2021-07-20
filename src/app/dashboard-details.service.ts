@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IProjectName } from './asset-detail';
 import { IAssetCount } from './dashboard-details';
 
 @Injectable({
@@ -19,7 +20,7 @@ export class DashboardDetailsService {
   }
 
   getManufacturerCount():Observable<any>{
-    let url="";
+    let url="http://localhost:25160/api/assets/manufacturer/count";
     return this.http.get<any>(url);
   }
 
@@ -32,6 +33,20 @@ export class DashboardDetailsService {
     let url="http://localhost:25160/api/assets/project/count";
     return this.http.get<any>(url);
   }
+
+  getAssetCount():Observable<any>{
+    let url="http://localhost:25160/api/assets/count";
+    return this.http.get<any>(url);
+  }
+
+  getProjects():Observable<IProjectName[]>{
+    let url="http://localhost:25160/api/projects";
+    return this.http.get<IProjectName[]>(url);
+  }
+
+
+
+
 
 
 }
