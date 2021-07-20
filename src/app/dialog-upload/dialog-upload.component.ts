@@ -12,6 +12,7 @@ export class DialogUploadComponent implements OnInit {
 
   //succ:boolean=false;
   fileName:any;
+  msg:any;
   showSpinner=false;
   isActive: boolean=false;
 
@@ -21,7 +22,7 @@ export class DialogUploadComponent implements OnInit {
   }
 
   openDialog(succ:boolean){
-    this.dialog.open(DialogUploadStatusComponent,{data:{succ:succ,fileName:this.fileName}});
+    this.dialog.open(DialogUploadStatusComponent,{data:{succ:succ,fileName:this.fileName,msg:this.msg}});
   }
 
   onFileSelected(event:any)
@@ -33,7 +34,7 @@ export class DialogUploadComponent implements OnInit {
   console.log(selectedFile);
   this.fileName=selectedFile.name;
   console.log(this.fileName); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{console.log(error);this.showSpinner=false;this.openDialog(false);});
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{this.msg=data.data;console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{this.msg="Could not upload "+this.fileName;console.log(error);this.showSpinner=false;this.openDialog(false);});
   
   //for importing same file twice
   //this.myFileInput.nativeElement.value='';
@@ -67,7 +68,7 @@ onDrop(event: any) {
   console.log(selectedFile);
   this.fileName=selectedFile.name;
   console.log(this.fileName); 
-  this._assetDetailService.postExcelData(formData).subscribe((data)=>{console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{console.log(error);this.showSpinner=false;this.openDialog(false);});
+  this._assetDetailService.postExcelData(formData).subscribe((data)=>{this.msg=data.data;console.log("Success!");this.showSpinner=false;this.openDialog(true);},(error)=>{this.msg="Could not upload "+this.fileName;console.log(error);this.showSpinner=false;this.openDialog(false);});
   this.isActive = false;
 }
 
