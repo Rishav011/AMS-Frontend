@@ -22,7 +22,7 @@ export class DialogUploadComponent implements OnInit {
   }
 
   openDialog(succ:boolean){
-    this.dialog.open(DialogUploadStatusComponent,{data:{succ:succ,fileName:this.fileName}});
+    this.dialog.open(DialogUploadStatusComponent,{data:{succ:succ,fileName:this.fileName,msg:this.msg}});
   }
 
   onFileSelected(event:any)
